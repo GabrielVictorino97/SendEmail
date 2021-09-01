@@ -12,11 +12,11 @@ namespace ConsoleApp1
             try
             {
                 var mock = new SendEmailCommand();
-                mock.FullName = "Gabriel Victorino";
-                mock.EmployeeNumber = 1234;
+                mock.Name = "Gabriel Victorino";
+                mock.Number = 1234;
                 mock.Email = "Email CC";
-                mock.AcceptanceDate = DateTime.Now;
-                mock.AcceptanceTerm = "Aceito os termos";
+                mock.Data = DateTime.Now;
+                mock.Termos = "Aceito os termos";
 
                 var mailMessage = new MailMessage("Seu email", "Seu email");
                 mailMessage.Subject = "Acceptance Term";
@@ -25,10 +25,10 @@ namespace ConsoleApp1
                 MailAddress copy = new MailAddress(mock.Email);
                 mailMessage.CC.Add(copy);
 
-                mailMessage.Body = $@"<p> Nome: {mock.FullName} </p> 
-                                      <p> Re: {mock.EmployeeNumber}</p>
-                                      <p> Data de aceite: {mock.AcceptanceDate}</p>
-                                      <p> Termo de aceite: {mock.AcceptanceTerm}</p>";
+                mailMessage.Body = $@"<p> Nome: {mock.Name} </p> 
+                                      <p> Re: {mock.Number}</p>
+                                      <p> Data de aceite: {mock.Data}</p>
+                                      <p> Termo de aceite: {mock.Termos}</p>";
 
 
                 mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
